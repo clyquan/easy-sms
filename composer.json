@@ -1,5 +1,5 @@
 {
-    "name": "clyquan/easy-sms",
+    "name": "overtrue/easy-sms",
     "description": "The easiest way to send short message.",
     "type": "library",
     "require": {
@@ -13,17 +13,17 @@
     },
     "autoload": {
         "psr-4": {
-            "clyquan\\EasySms\\": "src"
+            "Overtrue\\EasySms\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "clyquan\\EasySms\\Tests\\": "tests"
+            "Overtrue\\EasySms\\Tests\\": "tests"
         }
     },
     "license": "MIT",
     "authors": [{
-        "name": "clyquan",
-        "email": "clyquan@qq.com"
+        "name": "overtrue",
+        "email": "i@overtrue.me"
     }]
 }
