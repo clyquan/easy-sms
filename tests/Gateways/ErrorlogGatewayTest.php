@@ -21,9 +21,11 @@ class ErrorlogGatewayTest extends TestCase
 {
     protected $logFile = 'easy-sms-error-log-mock-file.log';
 
-    public function tearDown()
+    /**
+     * @after
+     */
+    public function removeLogFile()
     {
-        parent::tearDown();
         unlink($this->logFile);
     }
 
@@ -41,9 +43,11 @@ class ErrorlogGatewayTest extends TestCase
         $gateway->send(new PhoneNumber(new PhoneNumber(18188888888)), $message, new Config());
 
         $this->assertTrue(file_exists($this->logFile));
-        $this->assertContains(
-            'to: 18188888888 | message: "This is a test message."  | template: "" | data: {"foo":"bar"}',
-            file_get_contents($this->logFile)
+        $this->assertNotFalse(
+            strpos(
+                file_get_contents($this->logFile),
+                'to: 18188888888 | message: "This is a test message."  | template: "" | data: {"foo":"bar"}'
+            )
         );
     }
 }
