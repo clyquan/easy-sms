@@ -15,12 +15,18 @@ use Mockery;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    /**
+     * @before
+     */
+    public function registerMockery()
     {
         Mockery::globalHelpers();
     }
 
-    public function tearDown()
+    /**
+     * @after
+     */
+    public function closeMockery()
     {
         Mockery::close();
     }
